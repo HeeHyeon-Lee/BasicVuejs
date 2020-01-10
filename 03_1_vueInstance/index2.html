@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title>Vue Instance Lifecycle</title>
+</head>
+<body>
+  <div id="app">
+    {{ message }}
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+  <script>
+    new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue.js!'
+        },
+        beforeCreate: () => console.log('beforeCreate'),
+        created: () => console.log('created'),
+        mounted: function() {
+          console.log('mounted');
+          this.message = "Hello Vue!"
+        },
+        updated: () => console.log('updated')
+        //mounted에서 데이터를 변경했기 때문에 beforeUpdate, update 단계에 정의한 로직이 모두 동작함.
+    })
+  </script>
+</body>
+</html>
